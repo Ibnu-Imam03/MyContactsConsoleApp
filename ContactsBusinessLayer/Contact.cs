@@ -138,9 +138,6 @@ namespace ContactsBusinessLayer
             return clsContactDataAccess.ISContactExist(ID);
         }
 
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World");
-        } 
+        
     }
 }
