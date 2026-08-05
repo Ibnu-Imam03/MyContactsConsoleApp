@@ -223,7 +223,7 @@ namespace ContactsDataAccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT Found=1 FRom Contacts Where ContactID=@CContactID";
+            string query = "SELECT Found=1 FRom Contacts Where ContactID=@ContactID";
 
             SqlCommand cmd = new SqlCommand(query, connection);
 
@@ -244,6 +244,74 @@ namespace ContactsDataAccessLayer
             {
                 connection.Close();
             }
+            return isFound;
+        }
+
+        public static bool GetCountryByName(string Name)
+        {
+            bool isFound = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = "SELECT * FROM Countries WHERE CountryName=@CountryName ";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@CountryName", Name);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader raeder = command.ExecuteReader();
+                if (raeder.Read())
+                {
+                    isFound = true;
+
+                }
+                else
+                {
+                    isFound = false;
+
+                }
+            }
+            catch (Exception)
+            {
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
+        }
+
+        public static bool ISCountryExist(string Name)
+        {
+            bool isFound = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = "SELECT Found=1 FROM Countries WHERE CountryName = @CountryName";
+            SqlCommand command = new SqlCommand (query, connection);
+            command.Parameters.AddWithValue ("@CountryName", Name);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    isFound =  true;
+                }
+                else
+                {
+                    isFound = false;
+                }
+            }
+            catch(Exception)
+            {
+                isFound = false;
+            }
+            finally 
+            { 
+                connection.Close(); 
+            }
+
             return isFound;
         }
         
