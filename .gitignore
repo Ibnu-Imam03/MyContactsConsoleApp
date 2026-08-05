@@ -1,0 +1,14 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/ContactsBusinessLayer/bin/Debug
+/ContactsBusinessLayer/obj
+/ContactsBusinessLayer/Properties
+/ContactsDataAccessLayer/bin/Debug
+/ContactsDataAccessLayer/obj
+/ContactsDataAccessLayer/Properties
+/MyContactsConsoleApp/bin/Debug
+/MyContactsConsoleApp/obj
+/MyContactsConsoleApp/Properties
