@@ -132,9 +132,9 @@ namespace ContactsConsolApp
 
             //testDeleteContact(1);
 
-            ListContacts();
+            ListContacts();  
 
-            Console.ReadKey();
+            Console.ReadKey(); 
 
         }
     }
